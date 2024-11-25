@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Me perdonas?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #000; /* Fondo negro */
+            text-align: center;
+            color: #fff; /* Letras blancas */
+        }
+        img {
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #fff;
+        }
+        button {
+            font-size: 1.5em; /* Botones más grandes */
+            margin: 15px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .yes-btn {
+            background-color: #4caf50;
+            color: white;
+        }
+        .no-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        .yes-btn:hover, .no-btn:hover {
+            transform: scale(1.1);
+        }
+        .hidden {
+            display: none;
+        }
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            padding: 10px;
+        }
+        .photo-gallery img {
+            max-width: 300px; /* Fotos más grandes */
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+        .photo-gallery img:hover {
+            transform: scale(1.2) rotate(3deg); /* Animación al pasar por encima */
+        }
+    </style>
+</head>
+<body>
+    <div id="first-screen">
+        <img src="agnes.jpg" alt="Agnes triste">
+        <h1>¿Me perdonas?? :(</h1>
+        <div>
+            <button class="yes-btn" onclick="showGallery()">Sí</button>
+            <button class="no-btn" onclick="growYes()">No</button>
+        </div>
+    </div>
+    <div id="second-screen" class="hidden">
+        <h1>Así sí, prometo no volverte a enfadar :)))</h1>
+        <div class="photo-gallery" id="photo-gallery">
+            <img src="i have.jpg" alt="I have so much love">
+            <img src="lym.jpg" alt="Love you more card">
+            <img src="temp_image_64A3AF65-3C1B-4053-8D18-405AE129192E.jpg" alt="Us in the game">
+            <img src="cgi.jpg" alt="Updated Christmas gaming idea">
+        </div>
+    </div>
+    <script>
+        let yesButton = document.querySelector(".yes-btn");
+
+        function growYes() {
+            let currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = (currentSize + 10) + "px"; // Aumento más significativo
+        }
+
+        function showGallery() {
+            document.getElementById("first-screen").classList.add("hidden");
+            document.getElementById("second-screen").classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
